@@ -23,3 +23,12 @@ class TeamCapacity:
             minutes_committed_to_ceremonies = int(input("Enter minutes committed to ceremonies: "))
             team_member = TeamMember(name, available_minutes_per_day, days_off, minutes_committed_to_ceremonies)
             team_capacity.add_team_member(team_member)
+
+    def calculate_effort_minutes(team_capacity):
+        total_effort_minutes = 0
+        for member in team_capacity.team_members:
+            effective_days = team_capacity.sprint_days - member.days_off
+            total_effort_minutes += (
+                                                effective_days * member.available_minutes_per_day) - member.minutes_committed_to_ceremonies
+        return total_effort_minutes, total_effort_minutes / len(
+            team_capacity.team_members) if team_capacity.team_members else 0
