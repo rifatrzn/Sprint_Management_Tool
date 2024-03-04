@@ -32,3 +32,18 @@ class TeamCapacity:
                                                 effective_days * member.available_minutes_per_day) - member.minutes_committed_to_ceremonies
         return total_effort_minutes, total_effort_minutes / len(
             team_capacity.team_members) if team_capacity.team_members else 0
+
+    def display_team_capacity(team_capacity):
+        total_effort_minutes, per_person_effort_minutes = calculate_effort_minutes(team_capacity)
+        print(f"Total Available Effort-Minutes for Team: {total_effort_minutes}")
+        print(f"Available Effort-Minutes per Person: {per_person_effort_minutes}")
+
+
+    def main_feature_b():
+        sprint_days = int(input("Enter the number of sprint days: "))
+        team_capacity = TeamCapacity(sprint_days)
+        input_team_details(team_capacity)
+        display_team_capacity(team_capacity)
+
+    if __name__ == "__main__":
+        main_feature_b()
