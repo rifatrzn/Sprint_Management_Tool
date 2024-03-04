@@ -12,3 +12,14 @@ class TeamCapacity:
 
     def add_team_member(self, team_member):
         self.team_members.append(team_member)
+
+    def input_team_details(team_capacity):
+        while True:
+            name = input("Enter team member's name (or type 'done' to finish): ")
+            if name.lower() == 'done':
+                break
+            available_minutes_per_day = int(input("Enter available minutes per day: "))
+            days_off = int(input("Enter number of days off during the sprint: "))
+            minutes_committed_to_ceremonies = int(input("Enter minutes committed to ceremonies: "))
+            team_member = TeamMember(name, available_minutes_per_day, days_off, minutes_committed_to_ceremonies)
+            team_capacity.add_team_member(team_member)
