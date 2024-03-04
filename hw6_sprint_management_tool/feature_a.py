@@ -9,3 +9,11 @@ def input_sprint_points(calculator):
         if points.lower() == 'done':
             break
         calculator.sprint_points.append(int(points))
+
+
+def calculate_average_velocity(calculator):
+    if not calculator.sprint_points:
+        return 0
+    return sum(calculator.sprint_points) / len(calculator.sprint_points)
+
+
